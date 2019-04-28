@@ -22,7 +22,7 @@ export class CommonsService {
    * Service to call to users and repositories.
    * @param id - id the github user
    */
-  getDataByIdAsObserver(id: number): Observable<HttpResponse<object>> {
+  getDataByIdAsObserver(id: string): Observable<HttpResponse<object>> {
     
     let params = new HttpParams()
     .set('per_page', this.per_page.toString())
@@ -62,6 +62,10 @@ export class CommonsService {
     this.page = current?current:1;
   }
 
+  /**
+  * gets the current page number.
+  * @return - returns the current page number.
+  */
   getCurrent():number{
     return this.page;
   }

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent }      from './nav-bar/nav-bar.component';
 import { CommonsModule } from "./common/commons.module";
-import { UsersModule } from "./modules/users/users.module" 
+import { GitHubModule } from "./modules/github/github.module" 
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { UsersModule } from "./modules/users/users.module"
     AppRoutingModule,
 	HttpClientModule,
 	CommonsModule,
-	UsersModule
+	GitHubModule
   ],
   providers: [],
   bootstrap: [AppComponent, NavBarComponent]
