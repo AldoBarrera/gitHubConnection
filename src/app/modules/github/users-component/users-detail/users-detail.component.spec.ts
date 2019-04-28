@@ -126,10 +126,5 @@ describe('Component: UsersDetailComponent', () => {
 		component.getData();
 		tick();    
 		expect(usersServiceSpy.setCurrent.calls.count()).toBe(0, 'getData not called');
-	}));
-	
-	it('should get data should not call to the setCurrent', fakeAsync(() => {
-
-		expect(component.ngGetTitle("test")).toBe('Profile users');		
-	}));  
+	})); 
 });
