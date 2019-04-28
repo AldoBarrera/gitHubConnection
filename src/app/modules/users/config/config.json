@@ -1,0 +1,8 @@
+{
+  "users":{ 
+    "component":{ 
+      "urlRelative":"/users", 
+      "nameModule":"users" 
+    }  
+  } 
+}
