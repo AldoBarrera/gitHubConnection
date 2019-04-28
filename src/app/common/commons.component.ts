@@ -15,7 +15,7 @@ export class CommonsComponent implements OnInit {
   private link: string;
   protected id: string;
   public currentPage:number ;
-  protected moduleName: string;
+  public moduleName: string;
   
   constructor(
     protected route: ActivatedRoute,
