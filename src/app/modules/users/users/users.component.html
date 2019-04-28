@@ -3,13 +3,43 @@
 </h1>
 
 <div *ngFor="let singleData of data" class="float-left ">
-    
-           {{singleData.login}} - {{singleData.html_url}}
+    <div class="card bg-light pt-3 px-2 text-center align-items-center mx-1 my-1" >
+        <div class="card-horizontal">
+          <img class="card-img-top resizeimg rounded-circle"  src="{{singleData.avatar_url}}"  alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title " style="
+            width: 100px;">{{singleData.login}}</h5>
           
-          
+          </div>
+        </div>
+       
+        <div class="card-body">
+            <a routerLink="/users/{{singleData.login}}" class="btn btn-primary mx-1">Profile</a>
+             <a href="{{singleData.html_url}}" target="_blank" class="btn btn-primary mx-1">GitHub</a>
+        </div>
+      </div>
   
 </div>
+<div class="card-body">
+  <div class="text-center">
+      <button (click)="getNextData()" class="btn btn-primary mx-1">More</button>
+    </div>
+    </div>
 
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        
+        <div class="btn-group">
+          <a href="javascript:void(0)" class="btn btn-primary btn-fab" id="main" (click)="getNextData()"> 
+            <i class="material-icons">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACNSURBVEhL7ZJJCoAwDEXrUu8q4nAQD6XHcsjXBEOptGK664NPB9P/NrqCNStlubd5ODjZKIIoRRDFVNDwqnkT1Lwm01M2SnudHkICzGAWb5KZKCjaKR0uGF+Ab5jB3YiLVCrKTPElWqDLMYs3nwhJRPC7XPAlIjApF7REx6Rc8CWm5QIK8acMvC9Y4NwJy9tBKxU50YEAAAAASUVORK5CYII=">
+            </i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
  
 
