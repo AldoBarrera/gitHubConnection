@@ -7,11 +7,14 @@ import { AppComponent } from './app.component';
 import { NavBarComponent }      from './nav-bar/nav-bar.component';
 import { CommonsModule } from "./common/commons.module";
 import { GitHubModule } from "./modules/github/github.module" 
+import { httpInterceptorProviders } from './http-interceptors/index';
+import {Error403Component} from "./errors/error403.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-	NavBarComponent
+	NavBarComponent,
+	Error403Component
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { GitHubModule } from "./modules/github/github.module"
 	CommonsModule,
 	GitHubModule
   ],
-  providers: [],
-  bootstrap: [AppComponent, NavBarComponent]
+  providers: [httpInterceptorProviders],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

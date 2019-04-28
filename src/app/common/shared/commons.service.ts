@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
-
+import {default as config} from '../config/config.json';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -9,8 +9,8 @@ export class CommonsService {
 
   protected baseUrl;
   protected paginationUrl;  
-  public page = 1;
-  private per_page = 32;
+  public page = config["users"].component.pagebydefault;
+  private per_page = config["users"].component.maxpagecards;
   protected next: string;
   protected prev: string;
   protected last: string;
@@ -56,10 +56,10 @@ export class CommonsService {
   }
 
   /**
-  * Set the page count to previus page.
+  * Set the page count to current page.
   */
   setCurrent(current: number){
-    this.page = current?current:1;
+    this.page = current?current:config["users"].component.pagebydefault;
   }
 
   /**

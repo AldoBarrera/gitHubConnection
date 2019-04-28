@@ -1,0 +1,8 @@
+{
+  "users":{ 
+    "component":{ 
+      "maxpagecards":20, 
+      "pagebydefault":1 
+    }  
+  } 
+}
