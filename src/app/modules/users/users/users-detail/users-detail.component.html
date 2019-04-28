@@ -1,30 +1,24 @@
-﻿<div class="panel-body">
-<h1>
-    Displaying {{ data.length }} Repos.
-  </h1>
-  
-  <div *ngFor="let singleData of data" class="float-left " >
-      <div class="card bg-light text-center  mx-1 my-1" style="
-      width: 266px;
-      height: 340px;" >
-     <a href="{{singleData.html_url}}" target="_blank" class="card-header">{{singleData.name}}</a>
-              <div class="card-body text-secondary">
-                <h5 class="card-title">Name:{{singleData.name}}</h5>
-                <p class="card-text">Description: {{ singleData.description }} </p>
-                <p class="card-text">Forks: {{ singleData.forks }} </p>
-                <p class="card-text">Open Issues: {{ singleData.open_issues }} </p>
-                <p class="card-text">Issues: {{ singleData.forks_count }} </p>
-              </div>      
-        </div>
-    
-  </div>
+﻿<h1>
+	Displaying {{ data.length }} Repos.
+</h1>
+<div *ngFor="let singleData of data" class="float-left " >
+	<div class="card bg-light text-center  mx-1 my-1" style="width: 266px;height: 340px;" >
+		<a href="{{singleData.html_url}}" target="_blank" class="card-header">{{singleData.name}}</a>
+		<div class="card-body text-secondary">
+			<h5 class="card-title">Name:{{singleData.name}}</h5>
+			<p class="card-text">Description: {{ singleData.description }} </p>
+			<p class="card-text">Forks: {{ singleData.forks }} </p>
+			<p class="card-text">Open Issues: {{ singleData.open_issues }} </p>
+			<p class="card-text">Issues: {{ singleData.forks_count }} </p>
+		</div>      
+	</div>
 </div>
-  <div class="panel-footer">
-  <div class="text-center">
-      <a *ngIf = "hasPrevPage()" routerLink="/users/{{id}}/{{currentPage-1}}" class="btn btn-primary mx-1">&lt;&lt; Prev</a>
-      <a *ngIf = "hasNextPage()" routerLink="/users/{{id}}/{{currentPage+1}}" class="btn btn-primary mx-1">Next &gt;&gt;</a>
+<div class="panel-footer">
+	<div class="text-center">
+		<a *ngIf = "hasPrevPage()" routerLink="/users/{{id}}/{{currentPage-1}}" class="btn btn-primary mx-1">&lt;&lt; Prev</a>
+		<a *ngIf = "hasNextPage()" routerLink="/users/{{id}}/{{currentPage+1}}" class="btn btn-primary mx-1">Next &gt;&gt;</a>
     </div>
-  </div>
+</div>
   
 
 
