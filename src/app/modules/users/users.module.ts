@@ -4,6 +4,7 @@ import { RouterModule }  from '@angular/router';
 import { HttpModule }  from '@angular/http';
 
 import { UsersComponent } from "./users/users.component"; 
+import { UsersDetailComponent } from "./users/users-detail/users-detail.component"; 
 import { UsersService } from "./users/shared/users.service"; 
 import { usersRouting } from "./users/users.routing"; 
 
@@ -15,7 +16,8 @@ import { usersRouting } from "./users/users.routing";
 	  usersRouting
   ],
   declarations: [
-    UsersComponent 
+    UsersComponent,
+    UsersDetailComponent	
   ],
   exports: [
     UsersComponent, 

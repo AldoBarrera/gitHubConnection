@@ -24,8 +24,5 @@ export class UsersComponent extends CommonsComponent {
   addData(value) {
     this.data.push(value);
   }
-
-
- 
   
 }
