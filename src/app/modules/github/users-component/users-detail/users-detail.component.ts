@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CommonsComponent } from '../../../../common/commons.component';
 
 import {default as config} from '../../config/config.json';
@@ -12,9 +12,9 @@ import { UsersService } from '../shared/users.service';
 })
 export class UsersDetailComponent extends CommonsComponent {
 
-  constructor(router: Router, route: ActivatedRoute,private usersService: UsersService) 
+  constructor(route: ActivatedRoute,private usersService: UsersService) 
   {
-    super(router, route, usersService);
+    super(route, usersService);
     this.moduleName = config['users'].component.nameModule ;
   }
 }

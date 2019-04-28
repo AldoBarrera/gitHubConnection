@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
 import { CommonsService } from './shared/commons.service';
 
@@ -11,14 +11,13 @@ export class CommonsComponent implements OnInit {
 
   title: string;
   protected response: HttpResponse<object>;
-  protected data: any ;
-  protected link: string;
+  public data: any ;
+  private link: string;
   protected id: string;
-  protected currentPage:number ;
+  public currentPage:number ;
   protected moduleName: string;
   
-  constructor(    
-    protected router: Router,
+  constructor(
     protected route: ActivatedRoute,
     protected commonService: CommonsService
   ) 
@@ -59,12 +58,8 @@ export class CommonsComponent implements OnInit {
   ngPopulateData(id) {
     this.commonService.getDataByIdAsObserver(id)
         .subscribe(
-          data => {this.link = data.headers.get('link'); this.responseData(data.body)},
-          response => {
-            if (response.status == 404) {
-              this.router.navigate(['NotFound']);
-            }
-          });
+          data => {  this.link = data.headers.get('link');this.responseData(data.body)}
+		  );
   }
 
   /**
@@ -75,6 +70,7 @@ export class CommonsComponent implements OnInit {
   responseData(data:any) {
     this.getPagesURL();
     this.data = data
+	
   }
 
   /**
@@ -82,24 +78,14 @@ export class CommonsComponent implements OnInit {
    * this is necessary executed in the child due to github documentation
    * "rely on these link relations provided to you. Don't try to guess or construct your own URL."
    */
-  getPagesURL() {
-    let links = this.link?this.link.replace(/ /g, "").split(','):[];
+  getPagesURL() {	  
+    let links = this.link?this.link.replace(/ /g, "").split(','):[];	
     for(let link of links) {
       let value = link.split(';');
       let rel = value[1].split('=')[1];
       rel = rel.substring(1, rel.length-1);
       this.commonService[rel] = value[0].substring(1, value[0].length-1);
-    }
-  }
-
-  /**
-   * Sets the values and gets the data for the next page
-   */
-  getNextData() {
-    if(this.hasNextPage()) {
-      this.commonService.setNext();
-      this.getData();
-    }
+    }	
   }
 
   /**
@@ -127,6 +113,16 @@ export class CommonsComponent implements OnInit {
       this.getData();
     }
   }
+  
+  /**
+   * Sets the values and gets the data for the next page
+   */
+  getNextData() {
+    if(this.hasNextPage()) {
+      this.commonService.setNext();
+      this.getData();
+    }
+  }
 
   /**
    * Gets the current page number.
@@ -134,6 +130,22 @@ export class CommonsComponent implements OnInit {
    */
   getCurrentPage():number {    
     return this.commonService.page;    
+  }
+  
+  /**
+   * Gets the link value.
+   * @return - returns link. 
+   */
+  getLinks():string {    
+    return this.link;    
+  }
+  
+   /**
+   * Sets the link value.
+   * @return - returns link. 
+   */
+  setLinks(link:string) {    
+    this.link = link;    
   }
 
   /**

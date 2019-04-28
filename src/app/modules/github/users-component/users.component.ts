@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CommonsComponent } from '../../../common/commons.component';
 import {UsersService} from "./shared/users.service";
 
@@ -10,18 +10,21 @@ import {UsersService} from "./shared/users.service";
 })
 export class UsersComponent extends CommonsComponent {
 
-  @Input() datafromadd: any[] = [];
-  constructor(router: Router, route: ActivatedRoute,usersService: UsersService) { 
-    super(router, route, usersService);
+  constructor(route: ActivatedRoute,usersService: UsersService) { 
+    super(route, usersService);
   }
 
   responseData(data: any) {
+	  
     super.getPagesURL();
+	
     for (let value of data) {
-      this.addData(value) ;    }
+      this.addData(value) ;    
+	}
   }
 
   addData(value) {
+	  
     this.data.push(value);
   }
   
