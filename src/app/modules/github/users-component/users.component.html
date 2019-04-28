@@ -4,9 +4,9 @@
 <div *ngFor="let singleData of data" class="float-left ">
     <div class="card bg-light pt-3 px-2 text-center align-items-center mx-1 my-1" >
         <div class="card-horizontal">
-			<img class="card-img-top resizeimg rounded-circle"  src="{{singleData.avatar_url}}"  alt="Card image cap">
+			<img class="card-img-top resizeimg rounded-circle width-100 height-100"  src="{{singleData.avatar_url}}"  alt="Card image cap">
 			<div class="card-body">
-				<h5 class="card-title " style="width: 100px;">{{singleData.login}}</h5>
+				<h5 class="card-title width-100">{{singleData.login}}</h5>
             </div>
         </div>
        
@@ -26,7 +26,7 @@
     <div class="row">
 		<div class="col-md-12">
 			<div class="btn-group">
-				<a href="javascript:void(0)" class="btn btn-primary btn-fab" id="main" (click)="getNextData()"> 
+				<a href="javascript:void(0)" class="btn btn-primary btn-fab buttonNext" (click)="getNextData()"> 
 				<i class="material-icons">
 					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACNSURBVEhL7ZJJCoAwDEXrUu8q4nAQD6XHcsjXBEOptGK664NPB9P/NrqCNStlubd5ODjZKIIoRRDFVNDwqnkT1Lwm01M2SnudHkICzGAWb5KZKCjaKR0uGF+Ab5jB3YiLVCrKTPElWqDLMYs3nwhJRPC7XPAlIjApF7REx6Rc8CWm5QIK8acMvC9Y4NwJy9tBKxU50YEAAAAASUVORK5CYII=">
 				</i>
